@@ -1,0 +1,33 @@
+1.创建student表
+2.添加maven依赖，mysql数据库的依赖
+3.创建实体类Student
+4.创建持久层的Dao接口，定义操作数据库的方法
+5.创建mybatis的sql配置文件（映射文件，*.xml）：一个表————————————>一个映射文件
+  1.sql配置文件处于sql执行接口所在位置
+  2.名称与接口保持一致
+  3.写sql语句的，mybatis会执行这些sql语句的
+  4.具体解析：
+    1.<!DOCTYPE mapper
+              PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+      指定约束文件
+      约束文件的名称：mybatis-3-mapper.dtd
+      作用：限制和检查在当前文件中出现的标签、属性必须符合mybatis的要求
+
+    2.<mapper namespace="org.mybatis.example.BlogMapper">
+      当前文件的根标签，是必需的
+      namespace是命名空间，唯一的并且可以是自定义的字符串
+        要求你使用dao接口的全限定名称（cool.smhw.dao.StudentDao.java）
+
+    3.特定标签及特定操作
+      <select>：标识执行查询操作
+        <select id="selectBlog" resultType="Blog">
+            id是唯一标识当前sql语句（可自定义，建议使用接口中对应方法名），resultSet是sql语句返回值对应的实体类全限定名称（cool.smhw.entity.Student）
+      <update>：标识执行更新操作
+      <insert>：标识执行插入操作
+      <delete>：标识执行删除操作
+
+
+6.创建mybatis的主配置文件：一个项目————————————>一个主映射文件
+  它包含数据库的连接信息和sql配置文件的位置信息
+7.创建mybatis类，访问数据库
