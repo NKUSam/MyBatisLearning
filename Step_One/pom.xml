@@ -8,10 +8,6 @@
   <artifactId>Step_One</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>Step_One</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -43,5 +39,18 @@
 
   <build>
 
+    <resources>
+      <resource>
+        <!-- 设定主资源目录  -->
+        <directory>src/main/java</directory>
+
+        <!-- maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，只处理如下配置中包含的资源类型 -->
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
   </build>
 </project>
