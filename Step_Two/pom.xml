@@ -5,13 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cool.smhw</groupId>
-  <artifactId>Step_One</artifactId>
+  <artifactId>Step_Two</artifactId>
   <version>1.0-SNAPSHOT</version>
+
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -34,17 +35,13 @@
       <artifactId>mybatis</artifactId>
       <version>3.5.6</version>
     </dependency>
-
   </dependencies>
 
   <build>
-
     <resources>
       <resource>
-        <!-- 设定主资源目录  -->
         <directory>src/main/java</directory>
 
-        <!-- maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，只处理如下配置中包含的资源类型 -->
         <includes>
           <include>**/*.xml</include>
         </includes>

@@ -8,4 +8,7 @@ public interface StudentDao {
     //查询Student表的所有数据
     public List<Student> selectStudents();//对应一个sql的执行
 
+    //插入学生记录
+    public int insertStudent();
+
 }
