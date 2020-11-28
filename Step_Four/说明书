@@ -1,0 +1,16 @@
+作用：解释MyBatis中的参数
+
+parameterType=com.java.lang.Integer（全限定名称）
+    <mapper namespace="cool.smhw.dao.StudentDao">
+        <select id="selectStudents" parameterType="java.lang.Integer" resultType="cool.smhw.entity.Student">
+            select * from student where id = #{id}
+        </select>
+    </mapper>
+    parameterType="java.lang.Integer"是可写不可写的
+    简单传输一个形参
+        对于全限定名称MyBatis还制定了别名
+        java.lang.Integer——————————————>int
+        int——————————————>_int
+        ...
+    传输多个参数
+        使用@Param命名参数，在接口中形参列表对应的参数前：@Param("别名") 形参类型 形参变量

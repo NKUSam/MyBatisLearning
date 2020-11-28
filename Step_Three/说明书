@@ -1,0 +1,5 @@
+测试动态代理
+        SqlSession session = MybatisUtil.sqlFactory();
+        //使用了MyBatis的动态代理，自动生成实现类
+        StudentDao dao = session.getMapper(StudentDao.class);
+        相当于MyBatis给我们实现了接口的实现类
