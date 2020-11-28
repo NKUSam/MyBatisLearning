@@ -5,21 +5,24 @@ import cool.smhw.entity.Student;
 import cool.smhw.utils.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
+public class Test2 {
     public static void main(String[] args) {
         SqlSession session = MybatisUtil.sqlFactory();
         StudentDao dao = session.getMapper(StudentDao.class);
 
 
-        Student student = new Student();
-        student.setName("张飞");
-        student.setAge(20);
-        List<Student> students = dao.selectStudentIf(student);
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1001);
+        list.add(1002);
+        list.add(1003);
+        list.add(1004);
+        List<Student> students = dao.selectStudentForEach(list);
 
-        for (Student student1 : students) {
-            System.out.println(student1);
+        for (Student student : students) {
+            System.out.println(student);
         }
     }
 }

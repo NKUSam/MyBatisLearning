@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cool.smhw.dao.StudentDao">
-    <sql id="selectElem">
-        select id,name,email,age from student
-    </sql>
-
+<if>的使用：
     <select id="selectStudentIf" resultType="cool.smhw.entity.Student">
-        <include refid="selectElem"/> where
+        select id,name,email,age from student where
         <if test="name != null and name != '' ">
             name = #{name}
         </if>
@@ -17,9 +9,12 @@
         </if>
     </select>
 
+
+
+<where>的使用：
     <!--解决了<if>的问题-->
     <select id="selectStudentWhere" resultType="cool.smhw.entity.Student">
-        <include refid="selectElem"/>
+        select id,name,email,age from student
         <where>
             <if test="name != null and name != '' ">
                 name = #{name}
@@ -30,10 +25,11 @@
         </where>
     </select>
 
+
+<for>的使用：
     <select id="selectStudentForEach" resultType="cool.smhw.entity.Student">
-        <include refid="selectElem"/> where id in
+        select id,name,email,age from student where id in
         <foreach collection="list" item="i" open="(" close=")" separator=",">
             #{i}
         </foreach>
     </select>
-</mapper>

@@ -6,6 +6,10 @@ import java.util.List;
 
 public interface StudentDao {
 
-    List<Student> selectStudentIf(Student student);
+    public List<Student> selectStudentIf(Student student);
+
+    public List<Student> selectStudentWhere(Student student);
+
+    public List<Student> selectStudentForEach(List<Integer> list);
 
 }
